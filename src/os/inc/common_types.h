@@ -123,12 +123,28 @@
    #define OS_USED 
 #endif
 
+#if defined(__GNUC__)
+  /* Use stdint predefined types */
+  #define _USE_INTTYPES
+  #include <stdint.h>
+  typedef uint8_t   boolean;
+  typedef int8_t    int8;
+  typedef int16_t   int16;
+  typedef int32_t   int32;
+  typedef int64_t   int64;
+  typedef uint8_t   uint8;
+  typedef uint16_t  uint16;
+  typedef uint32_t  uint32;
+  typedef uint64_t  uint64;
+#endif
+
 #if defined(_ix86_) || defined (__i386__)
 /* ----------------------- Intel x86 processor family -------------------------*/
   /* Little endian */
   #undef   _STRUCT_HIGH_BIT_FIRST_
   #define  _STRUCT_LOW_BIT_FIRST_
 
+  #ifndef _USE_INTTYPES
   typedef unsigned char                         boolean;
   typedef signed char                           int8;
   typedef short int                             int16;
@@ -138,6 +154,7 @@
   typedef unsigned short int                    uint16;
   typedef unsigned long int                     uint32;
   _EXTENSION_ typedef unsigned long long int    uint64;
+  #endif
 
   typedef unsigned long int                     cpuaddr;
 
@@ -147,6 +164,7 @@
   #undef   _STRUCT_HIGH_BIT_FIRST_
   #define  _STRUCT_LOW_BIT_FIRST_
 
+  #ifndef _USE_INTTYPES
   typedef unsigned char                         boolean;
   typedef signed char                           int8;
   typedef short int                             int16;
@@ -156,6 +174,7 @@
   typedef unsigned short int                    uint16;
   typedef unsigned int                          uint32;
   typedef unsigned long int                     uint64;
+  #endif
 
   typedef unsigned long int                     cpuaddr;
 
@@ -166,6 +185,7 @@
    #define _STRUCT_HIGH_BIT_FIRST_
    #undef  _STRUCT_LOW_BIT_FIRST_
 
+   #ifndef _USE_INTTYPES
    typedef unsigned char                        boolean;
    typedef signed char                          int8;
    typedef short int                            int16;
@@ -175,6 +195,7 @@
    typedef unsigned short int                   uint16;
    typedef unsigned long int                    uint32;
    _EXTENSION_ typedef unsigned long long int   uint64;
+   #endif
 
   typedef unsigned long int                     cpuaddr;
 
@@ -184,6 +205,7 @@
    #define _STRUCT_HIGH_BIT_FIRST_
    #undef  _STRUCT_LOW_BIT_FIRST_
 
+   #ifndef _USE_INTTYPES
    typedef unsigned char                        boolean;
    typedef signed char                          int8;
    typedef short int                            int16;
@@ -193,6 +215,7 @@
    typedef unsigned short int                   uint16;
    typedef unsigned long int                    uint32;
    _EXTENSION_ typedef unsigned long long int   uint64;
+   #endif
 
   typedef unsigned long int                     cpuaddr;
 
@@ -202,6 +225,7 @@
   #undef   _STRUCT_HIGH_BIT_FIRST_
   #define  _STRUCT_LOW_BIT_FIRST_
 
+  #ifndef _USE_INTTYPES
   typedef unsigned char                         boolean;
   typedef signed char                           int8;
   typedef short int                             int16;
@@ -211,6 +235,7 @@
   typedef unsigned short int                    uint16;
   typedef unsigned long int                     uint32;
   _EXTENSION_ typedef unsigned long long int    uint64;
+  #endif
 
   typedef unsigned long int                     cpuaddr;
 
@@ -220,6 +245,7 @@
    #define _STRUCT_HIGH_BIT_FIRST_
    #undef  _STRUCT_LOW_BIT_FIRST_
 
+   #ifndef _USE_INTTYPES
    typedef unsigned char                        boolean;
    typedef signed char                          int8;
    typedef short int                            int16;
@@ -229,6 +255,7 @@
    typedef unsigned short int                   uint16;
    typedef unsigned long int                    uint32;
    _EXTENSION_ typedef unsigned long long int   uint64;
+   #endif
 
    typedef unsigned long int                     cpuaddr;
 
