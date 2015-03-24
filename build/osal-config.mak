@@ -32,3 +32,13 @@ OS ?= posix
 ## BSP = sis-rtems           -- RTEMS Sparc Instruction Simulator (GDB)
 ##---------------------------------------------------------
 BSP ?= pc-linux-ut
+
+##---------------------------------------------------------
+## PTHREAD_RT_SCHEDULER - Enable privileged pthread scheduling in Linux
+##
+## PTHREAD_RT_SCHEDULER = 0
+## PTHREAD_RT_SCHEDULER = 1
+##---------------------------------------------------------
+ifeq ($(OS),posix)
+  PTHREAD_RT_SCHEDULER ?= 1
+endif

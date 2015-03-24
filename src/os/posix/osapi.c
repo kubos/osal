@@ -432,6 +432,7 @@ int32 OS_API_Init(void)
    **  It must be root in order to set the scheduling policy, stacks, and priorities of
    **  the pthreads
    */
+   #ifdef PTHREAD_RT_SCHEDULER
    if (geteuid() != 0 )
    {
       #ifdef OS_DEBUG_PRINTF
@@ -451,6 +452,7 @@ int32 OS_API_Init(void)
           }
        #endif
    }
+   #endif
    return(return_code);
 }
 
@@ -580,6 +582,7 @@ int32 OS_TaskCreate (uint32 *task_id, const char *task_name, osal_task_entry fun
     }
 
 
+   #ifdef PTHREAD_RT_SCHEDULER
     /*
     ** Test to see if the user is running as root.
     ** root is required to set the scheduling policy, stack, and priority
@@ -638,6 +641,7 @@ int32 OS_TaskCreate (uint32 *task_id, const char *task_name, osal_task_entry fun
        }
 
     } /* End if user is root */
+    #endif
 
     /*
     ** Create thread
