@@ -1,5 +1,8 @@
 include osal-config.mak
 
+OSAL_SRC ?= $(abspath ../src)
+export OSAL_SRC
+
 #
 # all: Don't build the unit tests by default, because some targets might not support
 #      all of the unit tests

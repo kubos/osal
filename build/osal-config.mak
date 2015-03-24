@@ -18,7 +18,7 @@
 ## OS = rtems
 ## OS = vxworks6 
 ##---------------------------------------------------------
-OS = posix
+OS ?= posix
 
 ##---------------------------------------------------------
 ## BSP -- BSP/Operating system for the board
@@ -31,4 +31,4 @@ OS = posix
 ## BSP = mcf5235-rtems       -- RTEMS Coldfire evaluation board
 ## BSP = sis-rtems           -- RTEMS Sparc Instruction Simulator (GDB)
 ##---------------------------------------------------------
-BSP = pc-linux-ut
+BSP ?= pc-linux-ut

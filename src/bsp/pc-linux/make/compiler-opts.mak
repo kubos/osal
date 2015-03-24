@@ -83,13 +83,13 @@ CP=cp
 ##
 ## Compiler tools
 ##
-COMPILER=gcc
-ASSEMBLER=as
-LINKER=ld
-AR=ar
-NM=nm
-SIZE=size
-OBJCOPY=objcopy
-OBJDUMP=objdump
+COMPILER?=gcc
+ASSEMBLER?=as
+LINKER?=ld
+AR?=ar
+NM?=nm
+SIZE?=size
+OBJCOPY?=objcopy
+OBJDUMP?=objdump
 
 ## End configuration options ##
